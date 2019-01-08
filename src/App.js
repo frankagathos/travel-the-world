@@ -11,10 +11,6 @@ item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||  item.region.toLow
 }
 }
 
-
-
-
-
 class App extends React.Component {
     
    state = {
@@ -42,8 +38,6 @@ class App extends React.Component {
        })
    }
        
-
-
     handleSubmit = (event) => {
      
         event.preventDefault();
@@ -55,10 +49,6 @@ class App extends React.Component {
          this.setState({
             searchTerm:event.target.value,//important event.target.value
         });
-       
-   }
-   
-   onCountryClick = (event) => {
        
    }
     
@@ -75,13 +65,10 @@ class App extends React.Component {
                        <input placeholder="Italy....Asia" type="text" value={this.state.searchTerm} onChange={this.onSearchChange}></input>       
                    </form>
                    
-                   
-                   <div>  
-                                                      
+                   <div>          
                                                {this.state.allCountriesStats.filter(isSearched(this.state.searchTerm)).map(item=>
                                                        
                                                         <div className="country-card" key={item.alpha3Code} onClick={this.onCountryClick}>
-                                                           
                                                            <div> {item.name} </div>
                                                             <div className="region">{item.region}</div>
                                                              <div> <div className="flag-wrapper"><img src={item.flag} alt={item.flag}/></div></div>
@@ -97,5 +84,4 @@ class App extends React.Component {
     }
     
 }
-
 export default App;
