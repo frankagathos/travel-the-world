@@ -19,22 +19,18 @@ class App extends React.Component {
        allCountriesStats:[],
              
    } 
-
-   
+ 
    componentDidMount(){
         
    
-    //API request from country rest full apis
-    fetch(`https://restcountries.eu/rest/v2/all`)
-       
+    //API request from country rest full apis startin data
+    fetch(`https://restcountries.eu/rest/v2/all`)     
        .then(res => res.json())
        .then(json => {
            this.setState ({
               
                allCountriesStats:json
-           })
-           
-          
+           })        
        })
    }
        
@@ -43,7 +39,6 @@ class App extends React.Component {
         event.preventDefault();
                 
     }
-   
    onSearchChange = (event) => {
 
          this.setState({
@@ -51,7 +46,6 @@ class App extends React.Component {
         });
        
    }
-    
     render () {
         
         return (
@@ -67,7 +61,7 @@ class App extends React.Component {
                    
                    <div>          
                                                {this.state.allCountriesStats.filter(isSearched(this.state.searchTerm)).map(item=>
-                                                       
+                            
                                                         <div className="country-card" key={item.alpha3Code} onClick={this.onCountryClick}>
                                                            <div> {item.name} </div>
                                                             <div className="region">{item.region}</div>
