@@ -16,19 +16,16 @@ class App extends React.Component {
    state = {
        searchTerm:'',
        selectedCountry:'',
-       allCountriesStats:[],
-             
+       allCountriesStats:[],           
    } 
  
    componentDidMount(){
         
-   
     //API request from country rest full apis startin data
     fetch(`https://restcountries.eu/rest/v2/all`)     
        .then(res => res.json())
        .then(json => {
            this.setState ({
-              
                allCountriesStats:json
            })        
        })
@@ -48,17 +45,19 @@ class App extends React.Component {
    }
     render () {
         
+        //2 components to split
         return (
             
             <div className="App">
-               
-        
+              
                    <form onSubmit={this.handleSubmit}>
                       <div>Travel the world</div>
                        <span>By country or Region </span>
                        <input placeholder="Italy....Asia" type="text" value={this.state.searchTerm} onChange={this.onSearchChange}></input>       
                    </form>
                    
+                   
+                    
                    <div>          
                                                {this.state.allCountriesStats.filter(isSearched(this.state.searchTerm)).map(item=>
                             
