@@ -3,7 +3,6 @@ import './App.css'
 
 
 
-
 const isSearched =(searchTerm) => {
 return function(item) {
 return !searchTerm ||
@@ -43,6 +42,15 @@ class App extends React.Component {
         });
        
    }
+   
+
+   onCountryClick(id) {
+function Id(item) {
+return item.alpha3Code === id;
+}
+const updatedList = this.state.allCountriesStats.filter(Id);
+       console.log(updatedList);
+}
     render () {
         
         //2 components to split
@@ -65,16 +73,37 @@ class App extends React.Component {
                                                            <div> {item.name} </div>
                                                             <div className="region">{item.region}</div>
                                                              <div> <div className="flag-wrapper"><img src={item.flag} alt={item.flag}/></div></div>
+                                                                             <span>
+                                                                            <button
+                                                                            //choose button
+                                                                            onClick={() => this.onCountryClick(item.alpha3Code)}
+                                                                            type="button"
+                                                                            >
+                                                                           Select
+                                                                            </button>
+                                                                            </span>
                                                          </div>
                                                                                                        
                                                        ) }
-                </div>
+                     </div>
          
                    
            
             </div>
+            
+            
+            
+  
         )
     }
     
 }
+
+
+class Form extends React.Component {
+    
+}
+
+
+
 export default App;
