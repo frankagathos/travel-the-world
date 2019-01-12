@@ -71,8 +71,7 @@ this.getNextImage = this.getNextImage.bind(this);
             selectedCountrypopulation:selectedCountry[0].population,
             results_style:'user-has-chosen',
             country_stats_style:'show',
-            photocounter:1,
-         
+            photocounter:1,  
         });
        
        
