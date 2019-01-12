@@ -44,3 +44,30 @@
     display: inline-block;
     cursor: pointer;
 }
+
+.photo-wrapper{
+    position:relative;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    height: 500px;
+}
+.photo-wrapper img{
+    position:absolute;
+    width:750px;
+    max-width: 100%;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+  
+}
+
+.user-has-chosen{
+    height:250px;
+    background-color:darkslategray;
+    overflow: hidden;
+}
+
+.user-has-chosen img{
+    
+    width: 100px;}
