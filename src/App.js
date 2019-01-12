@@ -15,17 +15,20 @@ class App extends React.Component {
    state = {
        searchTerm:'',
        selectedCountry:'',
-       allCountriesStats:[],           
+       allCountriesStats:[], 
+       isLoading:false,
    } 
  
    componentDidMount(){
-        
+       
+        this.setState({isLoading:true});   
     //API request from country rest full apis startin data
     fetch(`https://restcountries.eu/rest/v2/all`)     
        .then(res => res.json())
        .then(json => {
            this.setState ({
-               allCountriesStats:json
+               allCountriesStats:json,
+               isLoading:false,
            })        
        })
    }
@@ -51,8 +54,14 @@ return item.alpha3Code === id;
 const updatedList = this.state.allCountriesStats.filter(Id);
        console.log(updatedList);
 }
+
+
     render () {
         
+        //check if it'loading 
+        if(this.state.isLoading){
+                           return <p>Loading....</p>
+                       }
         //2 components to split
         return (
             
@@ -67,6 +76,8 @@ const updatedList = this.state.allCountriesStats.filter(Id);
                    
                     
                    <div>          
+                                              
+                    
                                                {this.state.allCountriesStats.filter(isSearched(this.state.searchTerm)).map(item=>
                             
                                                         <div className="country-card" key={item.alpha3Code} onClick={this.onCountryClick}>
