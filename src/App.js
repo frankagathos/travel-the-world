@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css'
-
+import Search from './components/Search';
 
 
 const isSearched =(searchTerm) => {
@@ -62,22 +62,13 @@ const updatedList = this.state.allCountriesStats.filter(Id);
         if(this.state.isLoading){
                            return <p>Loading....</p>
                        }
-        //2 components to split
         return (
             
             <div className="App">
               
-                   <form onSubmit={this.handleSubmit}>
-                      <div>Travel the world</div>
-                       <span>By country or Region </span>
-                       <input placeholder="Italy....Asia" type="text" value={this.state.searchTerm} onChange={this.onSearchChange}></input>       
-                   </form>
-                   
-                   
-                    
-                   <div>          
-                                              
-                    
+                       <Search onChange={this.onSearchChange} value={this.state.searchTerm} onSubmit={this.handleSubmit}></Search>    
+                         <div>   
+                                                                      
                                                {this.state.allCountriesStats.filter(isSearched(this.state.searchTerm)).map(item=>
                             
                                                         <div className="country-card" key={item.alpha3Code} onClick={this.onCountryClick}>
@@ -96,24 +87,16 @@ const updatedList = this.state.allCountriesStats.filter(Id);
                                                          </div>
                                                                                                        
                                                        ) }
-                     </div>
+                       </div>
          
-                   
-           
+                    
             </div>
-            
-            
-            
-  
         )
     }
     
 }
 
 
-class Form extends React.Component {
-    
-}
 
 
 
