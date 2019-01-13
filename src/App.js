@@ -10,6 +10,20 @@ item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||  item.region.toLow
 }
 }
 
+const startPlayer = (z) => { //peiramata
+    
+    setInterval(function(){
+            for (let i=0; i<z; i++){
+                var y = 0;
+        return (
+         
+        console.log(y))
+       
+    }
+    },1000);
+
+}
+
 class App extends React.Component {
     
     constructor(props) {
@@ -64,11 +78,13 @@ this.getNextImage = this.getNextImage.bind(this);
    const selectedCountry = this.state.allCountriesStats.filter(isId);
    
       this.setState({
+          
             selectedCountryName:selectedCountry[0].name,
             selectedCountryArea:selectedCountry[0].area,
             selectedCountryCapital:selectedCountry[0].capital,
             selectedCountrySubRegion:selectedCountry[0].subregion,
             selectedCountrypopulation:selectedCountry[0].population,
+            selectedCountryFlag:selectedCountry[0].flag,
             results_style:'user-has-chosen',
             country_stats_style:'show',
             photocounter:1,  
@@ -93,7 +109,9 @@ this.getNextImage = this.getNextImage.bind(this);
                
             }     
             )
-        })      
+        }) 
+        
+        startPlayer(10);
 }
 
 getNextImage = () => {
@@ -121,7 +139,7 @@ getPreviousImage = () =>{
     let photocounter = this.state.photocounter; 
     const TotalPhotos = this.state.numberOfPhotos;
     const AllUrls = this.state.all_city_urls;
-    console.log("photocounter="+photocounter);
+    
     let firstPrevious = true;
     if (firstPrevious){
         
@@ -180,7 +198,7 @@ getPreviousImage = () =>{
                     </div>
                
                     <div className={this.state.country_stats_style}>
-                          
+                        <div className='selected-flag'><img src={this.state.selectedCountryFlag} alt={this.state.selectedCountryName}></img></div>   
                            {this.state.selectedCountryName} cover(s) an area of  {this.state.selectedCountryArea}km².The capital is {this.state.selectedCountryCapital}.<br></br>
                            It is located in {this.state.selectedCountrySubRegion} and has a population of {(this.state.selectedCountrypopulation/1000000).toFixed(4)} million.
                            
