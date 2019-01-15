@@ -10,19 +10,6 @@ item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||  item.region.toLow
 }
 }
 
-const startPlayer = (z) => { //peiramata
-    
-    setInterval(function(){
-            for (let i=0; i<z; i++){
-                var y = 0;
-        return (
-         
-        console.log(y))
-       
-    }
-    },1000);
-
-}
 
 class App extends React.Component {
     
@@ -111,7 +98,7 @@ this.getNextImage = this.getNextImage.bind(this);
             )
         }) 
         
-        startPlayer(10);
+ 
 }
 
 getNextImage = () => {
