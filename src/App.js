@@ -34,7 +34,7 @@ this.getNextImage = this.getNextImage.bind(this);
  
    componentDidMount(){
        
-        this.setState({isLoading:true});   
+    this.setState({isLoading:true});   
     //API request from country rest full apis startin data
     fetch(`https://restcountries.eu/rest/v2/all`)     
        .then(res => res.json())
@@ -83,6 +83,7 @@ this.getNextImage = this.getNextImage.bind(this);
         const client_id ="8ed09088a4eb4d257e69127e636984bbf65599f0f00bc9a10a35d759d3f2b7d2";
         let photocounter = 0; 
           
+          this.setState({isLoading:true});   
         //API request  of users country
         fetch(`https://api.unsplash.com/search/photos?client_id=${client_id}&query=${query}`)
          .then(res => res.json())
@@ -93,6 +94,7 @@ this.getNextImage = this.getNextImage.bind(this);
                 numberOfPhotos:json.results.length,
                 city_photo_url:json.results[photocounter].urls.regular,
                 all_city_urls:json.results,
+                isLoading:false,
                
             }     
             )
@@ -168,7 +170,7 @@ getPreviousImage = () =>{
                          <Search onChange={this.onSearchChange} value={this.state.searchTerm} onSubmit={this.handleSubmit}></Search> 
                         
                               
-                            <div>                          
+                                                    
                                                {this.state.allCountriesStats.filter(isSearched(this.state.searchTerm)).map(item=>
                             
                                                         <div className="country-card" key={item.alpha3Code} onClick={() => this.onCountryClick(item.alpha3Code)}>
@@ -181,8 +183,8 @@ getPreviousImage = () =>{
                                                          </div>
                                                                                                        
                                                        ) }
-                          </div>
-                    </div>
+                           
+                     </div>
                
                     <div className={this.state.country_stats_style}>
                         <div className='selected-flag'><img src={this.state.selectedCountryFlag} alt={this.state.selectedCountryName}></img></div>   
