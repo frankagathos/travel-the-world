@@ -46,11 +46,7 @@ this.getNextImage = this.getNextImage.bind(this);
        })
    }
        
-    handleSubmit = (event) => {
-     
-        event.preventDefault();
-                
-    }
+
    onSearchChange = (event) => {
 
          this.setState({
@@ -167,7 +163,7 @@ getPreviousImage = () =>{
             
             <div className="App">
                       <div className={this.state.results_style}>
-                         <Search onChange={this.onSearchChange} value={this.state.searchTerm} onSubmit={this.handleSubmit}></Search> 
+                         <Search onChange={this.onSearchChange} value={this.state.searchTerm}></Search> 
                         
                               
                                                     
@@ -195,14 +191,12 @@ getPreviousImage = () =>{
                                      <img src={this.state.city_photo_url} alt={this.state.selectedCountryName}></img>
                                      
                            </div>
-                        <div>
-                                 {this.state.photocounter+'/'+this.state.numberOfPhotos}
-                        </div>
+                            <div>
+                                     {this.state.photocounter+'/'+this.state.numberOfPhotos}
+                            </div>
                           
                            <button onClick={this.getPreviousImage}>PREVIOUS</button>
-                           <button onClick={this.getNextImage}>NEXT</button>
-              
-                          
+                           <button onClick={this.getNextImage}>NEXT</button> 
                     </div>
          
                     
