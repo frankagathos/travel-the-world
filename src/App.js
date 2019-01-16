@@ -90,8 +90,7 @@ this.getNextImage = this.getNextImage.bind(this);
                 numberOfPhotos:json.results.length,
                 city_photo_url:json.results[photocounter].urls.regular,
                 all_city_urls:json.results,
-                isLoading:false,
-               
+                isLoading:false,         
             }     
             )
         }) 
@@ -119,7 +118,7 @@ getNextImage = () => {
             }
                   
 }
-
+//maybe correct
 getPreviousImage = () =>{
     let photocounter = this.state.photocounter; 
     const TotalPhotos = this.state.numberOfPhotos;
@@ -149,9 +148,7 @@ getPreviousImage = () =>{
                 city_photo_url:AllUrls[photocounter-1].urls.regular,
                 photocounter:this.state.photocounter-1,
             })
-        
-          
-     
+                
     }    
 }
     render () {
