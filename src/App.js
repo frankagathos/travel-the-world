@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css'
 import Search from './components/Search';
-
+import CountryInfo from './components/CountryInfo'
 
 const isSearched =(searchTerm) => {
 return function(item) {
@@ -180,10 +180,10 @@ getPreviousImage = () =>{
                      </div>
                
                     <div className={this.state.country_stats_style}>
-                        <div className='selected-flag'><img src={this.state.selectedCountryFlag} alt={this.state.selectedCountryName}></img></div>   
-                           {this.state.selectedCountryName} cover(s) an area of  {this.state.selectedCountryArea}km².The capital is {this.state.selectedCountryCapital}.<br></br>
-                           It is located in {this.state.selectedCountrySubRegion} and has a population of {(this.state.selectedCountrypopulation/1000000).toFixed(4)} million.
-                           
+                    
+                          <CountryInfo imgUrl={this.state.selectedCountryFlag} CountryName={this.state.selectedCountryName}  CountryArea={ this.state.selectedCountryArea} CountryCapital={this.state.selectedCountryCapital}  CountrySubRegion={this.state.selectedCountrySubRegion} CountryPopulation={this.state.selectedCountrypopulation}></CountryInfo>
+                          
+       
                            <div className='photo-wrapper'>
                                      <img src={this.state.city_photo_url} alt={this.state.selectedCountryName}></img>
                                      
