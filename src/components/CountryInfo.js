@@ -19,7 +19,7 @@ class CountryInfo extends React.Component{
         } = this.props; //destructuring 
         
         return(
-                        <div>
+             <div>
              <div className='selected-flag'><img src={ imgUrl} alt={CountryName}></img></div>   
             <div>
                              {CountryName} cover(s) an area of  {CountryArea}km².The capital is {CountryCapital}.<br></br>

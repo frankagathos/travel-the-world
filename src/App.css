@@ -1,6 +1,7 @@
 .App {
     background: grey;
-  text-align: center;
+
+  padding:3em;
 }
 
 .App-logo {
@@ -33,7 +34,7 @@
 }
 .selected-flag img{width: 80px;}
 .flag-wrapper{padding: 10px;}
-.flag-wrapper img{max-width: 250px;}
+.flag-wrapper img{max-width: 250px;max-height: 250px;transition:0.6s all;}
 .flag-wrapper img:hover {
       transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
 }
@@ -42,9 +43,11 @@
 }
 
 .country-card{
+  background: #7B917B;
     color:aliceblue;
     display: inline-block;
     cursor: pointer;
+    padding:30px;
 }
 
 .photo-wrapper{
@@ -56,23 +59,18 @@
 /*    height:350px;*/
 }
 .photo-wrapper img{
-/*
-    position:absolute;
-    width:100%;
-    max-width: 100%;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 50%;
-*/
+width: 35%;
+max-width: 100%;
 }
 
 .user-has-chosen{
+  position:fixed;
     z-index: 2;
-    position:absolute;
+   
     bottom: 0;
     background-color:darkslategray;
     overflow: hidden;
-    height:100px;
+    height:125px;
     width: 100%;
     
 }
@@ -81,9 +79,15 @@
     width: 100px;}
 
 .user-has-chosen form {
-    color:aliceblue;
-    background: red;
- position:absolute;
+ 
+    color:#fff;
+    background: blue;
+ position:fixed;
+ bottom:0;
+ left: 0;
+ padding:40px;
+ display: flex;
+ flex-direction: row;
     
     
 }
@@ -95,4 +99,8 @@
 
 
 .position_absolute{
+}
+
+.show{
+
 }

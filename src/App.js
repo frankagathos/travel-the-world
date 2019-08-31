@@ -151,13 +151,23 @@ getPreviousImage = () =>{
                 
     }    
 }
+
+
+
+
+
+
+    
+
     render () {
         //check if it'loading 
         if(this.state.isLoading){
                            return <p>Loading....</p>
                        }
+
+                   
         return (
-            
+        
             <div className="App">
                       <div className={this.state.results_style}>
                          <Search onChange={this.onSearchChange} value={this.state.searchTerm}></Search> 
@@ -169,7 +179,11 @@ getPreviousImage = () =>{
                                                         <div className="country-card" key={item.alpha3Code} onClick={() => this.onCountryClick(item.alpha3Code)}>
                                                             <div> {item.name} </div>
                                                             <div className="region">{item.region}</div>
-                                                            <div> <div className="flag-wrapper"><img src={item.flag} alt={item.flag}/></div></div>
+                                                            <div>
+                                                                 <div className="flag-wrapper"><div style={{height:'150px',background:'url('+item.flag+')',width:'300px',backgroundPosition:"center center",backgroundSize:"cover",}}/>
+                                                                 </div>
+                                                            
+                                                            </div>
                                                                             
                                                        
                                                                            

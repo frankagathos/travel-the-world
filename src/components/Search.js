@@ -23,8 +23,8 @@ class Search extends React.Component {
         
         return(
                 <form onSubmit={handleSubmit}>
-                       <div>Travel the world</div>
-                       <span>By country or Region </span>
+                
+                       <span>Select a country or region </span>
                      <div> <input placeholder="Italy....Asia" type="text" value={value} onChange={onChange}></input>    </div>    
                 </form>
         )
